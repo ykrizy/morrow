@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morrow Eyewear — Apresentação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400;500;700;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A0A;
+  --surface: #111111;
+  --surface2: #1A1A1A;
+  --border: rgba(255,255,255,0.07);
+  --border-accent: rgba(200,169,110,0.3);
+  --gold: #C8A96E;
+  --gold2: #E8D4A8;
+  --cream: #F0EAE0;
+  --muted: #666;
+  --muted2: #999;
+  --green: #4A9;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  padding: 1.8rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(16px);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+.logo span {
+  font-style: normal;
+  font-size: 0.6rem;
+  display: block;
+  letter-spacing: 0.28em;
+  color: var(--muted2);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.header-meta {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* TABS */
+.tabs-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: sticky;
+  top: 77px;
+  z-index: 40;
+}
+.tabs-bar::-webkit-scrollbar { display: none; }
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted2);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 1rem 1.6rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--cream); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* PANELS */
+.panel { display: none; }
+.panel.active { display: block; animation: panelIn 0.35s ease; }
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* PANEL INNER */
+.panel-inner { max-width: 1080px; margin: 0 auto; padding: 3.5rem 2.5rem; }
+.panel-header { margin-bottom: 2.8rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+.panel-eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.panel-eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+.panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+.panel-title em { font-style: italic; color: var(--gold); }
+.panel-subtitle {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: var(--muted2);
+  line-height: 1.8;
+  max-width: 620px;
+  margin-top: 0.9rem;
+}
+
+/* HERO PANEL */
+.hero-panel {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  min-height: calc(100vh - 120px);
+  border-bottom: 1px solid var(--border);
+}
+.hero-left {
+  padding: 5rem 4rem 5rem 4.5rem;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.04;
+  margin-bottom: 1.5rem;
+}
+.hero-title em { font-style: italic; color: var(--gold); display: block; }
+.hero-body {
+  font-family: 'Lora', serif;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--muted2);
+  max-width: 460px;
+  margin-bottom: 2.2rem;
+}
+.hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge {
+  border: 1px solid var(--border-accent);
+  padding: 0.35rem 0.9rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold2);
+}
+.hero-right {
+  display: flex;
+  flex-direction: column;
+}
+.hero-stat {
+  flex: 1;
+  padding: 2.5rem 3rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-stat:last-child { border-bottom: none; }
+.stat-figure {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stat-label { font-size: 0.78rem; color: var(--muted2); line-height: 1.55; max-width: 240px; }
+
+/* KEY NUMBERS BAR */
+.hl-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+.hl-item {
+  padding: 2rem 1.5rem;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.hl-item:last-child { border-right: none; }
+.hl-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.3rem;
+  color: var(--gold);
+  font-weight: 700;
+  line-height: 1;
+}
+.hl-label { font-size: 0.7rem; color: var(--muted2); margin-top: 0.4rem; line-height: 1.5; }
+
+/* CARDS */
+.cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+.cards-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); }
+.card {
+  background: var(--surface);
+  padding: 2rem;
+  transition: background 0.22s;
+}
+.card:hover { background: var(--surface2); }
+.card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: rgba(200,169,110,0.16);
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 0.7rem;
+}
+.card-body {
+  font-family: 'Lora', serif;
+  font-size: 0.88rem;
+  color: var(--muted2);
+  line-height: 1.78;
+}
+.card-body strong { color: var(--cream); font-weight: 400; }
+.card-fig {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  color: var(--gold);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.card-desc { font-size: 0.8rem; color: var(--muted2); line-height: 1.6; }
+
+/* SPEC TABLE */
+.spec-table { width: 100%; border-collapse: collapse; }
+.spec-table tr { border-bottom: 1px solid var(--border); }
+.spec-table tr:last-child { border-bottom: none; }
+.spec-table td { padding: 1rem 1.4rem; font-size: 0.88rem; vertical-align: top; }
+.spec-table td:first-child {
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); width: 170px; font-family: 'Syne', sans-serif; font-weight: 700;
+}
+.spec-table td:last-child { font-family: 'Lora', serif; color: var(--muted2); line-height: 1.65; }
+.spec-table td:last-child strong { color: var(--cream); font-weight: 400; }
+
+/* PROS / CONS */
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+.pros-side, .cons-side { background: var(--surface); padding: 2.2rem; }
+.side-header {
+  font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+  padding-bottom: 1.1rem; margin-bottom: 1.3rem; border-bottom: 2px solid;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.pros-header { color: var(--green); border-color: var(--green); }
+.cons-header { color: #C87; border-color: #C87; }
+.side-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dot-g { background: var(--green); }
+.dot-a { background: #C87; }
+.pt-row {
+  display: flex; gap: 0.9rem; align-items: flex-start;
+  padding: 0.85rem 0; border-bottom: 1px solid var(--border);
+}
+.pt-row:last-child { border-bottom: none; }
+.pt-dot { width: 4px; height: 4px; border-radius: 50%; margin-top: 0.55rem; flex-shrink: 0; }
+.pt-text { font-family: 'Lora', serif; font-size: 0.88rem; color: var(--muted2); line-height: 1.68; }
+.pt-text strong { color: var(--cream); font-weight: 400; }
+
+/* QUOTE */
+.quote-block {
+  border-left: 3px solid var(--gold);
+  padding: 1.8rem 2.2rem;
+  margin: 2.2rem 0;
+  background: var(--surface);
+}
+.quote-big {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-style: italic;
+  color: var(--cream); line-height: 1.7; margin-bottom: 0.7rem;
+}
+.quote-attr { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 1.8rem; margin-top: 1.5rem; }
+.timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:var(--border-accent); }
+.tl-item { position: relative; padding: 0 0 2.2rem 1.8rem; }
+.tl-item::before { content:''; position:absolute; left:-4px; top:7px; width:8px; height:8px; border-radius:50%; background:var(--gold); }
+.tl-year { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+.tl-text { font-family:'Lora',serif; font-size:0.9rem; color:var(--muted2); line-height:1.7; }
+.tl-text strong { color:var(--cream); font-weight:400; }
+
+/* PRODUCTS */
+.products-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); margin-top: 2rem; }
+.product-card { background: var(--surface); padding: 1.8rem 1.4rem 1.4rem; transition: background 0.22s; }
+.product-card:hover { background: var(--surface2); }
+.product-name { font-family:'Playfair Display',serif; font-size:1.5rem; font-style:italic; color:var(--cream); margin-bottom:0.3rem; }
+.product-tag { font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:0.8rem; }
+.product-desc { font-size:0.82rem; color:var(--muted2); line-height:1.6; font-family:'Lora',serif; }
+.color-row { display:flex; gap:5px; margin-top:1rem; }
+.c-dot { width:11px; height:11px; border-radius:50%; }
+.c-black { background:#222; border:1px solid #444; }
+.c-tort { background:#7B4F2E; }
+.c-gold { background:var(--gold); }
+.c-silver { background:#888; }
+
+/* COMPETITOR TABLE */
+.comp-table { width:100%; border-collapse:collapse; margin-top:1.8rem; }
+.comp-table th {
+  text-align:left; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--gold); padding:0.7rem 1.1rem; border-bottom:1px solid var(--border-accent);
+  font-family:'Syne',sans-serif;
+}
+.comp-table td {
+  padding:0.95rem 1.1rem; font-family:'Lora',serif; font-size:0.86rem; color:var(--muted2);
+  border-bottom:1px solid var(--border); vertical-align:top; line-height:1.5;
+}
+.comp-table td:first-child { color:var(--cream); font-style:italic; }
+.comp-table tr:last-child td { border-bottom:none; }
+.tag-morrow { color:var(--gold); font-family:'Syne',sans-serif; font-style:normal; font-weight:700; font-size:0.73rem; }
+
+/* TWO COL */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:start; }
+
+/* SOURCES */
+.sources-list { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); margin-top:1.8rem; }
+.source-item {
+  background:var(--surface); padding:1.1rem 1.4rem;
+  display:flex; gap:0.9rem; align-items:flex-start; transition:background 0.2s;
+}
+.source-item:hover { background:var(--surface2); }
+.source-num { font-size:0.62rem; color:var(--gold); font-weight:700; letter-spacing:0.1em; flex-shrink:0; margin-top:2px; }
+.source-site { font-size:0.77rem; color:var(--cream); font-weight:700; margin-bottom:0.2rem; }
+.source-desc { font-size:0.74rem; color:var(--muted); line-height:1.5; }
+
+/* DIVIDER */
+.s-div { margin:2rem 0; border:none; border-top:1px solid var(--border); }
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  header { padding:1.2rem 1.5rem; }
+  .hero-panel { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .hero-left { padding:3rem 1.5rem; border-right:none; }
+  .panel-inner { padding:2rem 1.5rem; }
+  .cards-2,.cards-3,.pros-cons,.two-col,.sources-list,.products-grid,.hl-row { grid-template-columns:1fr; }
+  .hl-row { grid-template-columns:1fr 1fr; }
+  .comp-table { font-size:0.78rem; }
+  .tabs-bar { top:65px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    Morrow
+    <span>e•Progressives Gen 4</span>
+  </div>
+  <div class="header-meta">Apresentação académica · MogWartz · 2026</div>
+</header>
+
+<!-- TABS -->
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('visao',this)">Visão Geral</button>
+  <button class="tab-btn" onclick="switchTab('historia',this)">História</button>
+  <button class="tab-btn" onclick="switchTab('tecnologia',this)">Tecnologia</button>
+  <button class="tab-btn" onclick="switchTab('produtos',this)">Produtos</button>
+  <button class="tab-btn" onclick="switchTab('analise',this)">Análise</button>
+  <button class="tab-btn" onclick="switchTab('mercado',this)">Mercado</button>
+  <button class="tab-btn" onclick="switchTab('concorrencia',this)">Concorrência</button>
+  <button class="tab-btn" onclick="switchTab('fontes',this)">Fontes</button>
+</div>
+
+<!-- ══════════════ VISÃO GERAL ══════════════ -->
+<div class="panel active" id="panel-visao">
+  <div class="hero-panel">
+    <div class="hero-left">
+      <div class="eyebrow">Inovação em ótica</div>
+      <h1 class="hero-title">
+        Ver longe.<br>Ver perto.<br>
+        <em>Sem compromissos.</em>
+      </h1>
+      <p class="hero-body">
+        A presbiopia afeta toda a gente depois dos 40. Durante décadas, a solução foi sempre a mesma: progressivos com zonas fixas, campo visual estreito e uma adaptação lenta. A Morrow decidiu que isso não chegava.
+        <br><br>
+        Com cristais líquidos na lente e um clique na armação, os e•Progressives mudam de foco em menos de um segundo — como o teu olho faria, se pudesse.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">Fundada 2016 · Bélgica</span>
+        <span class="badge">Silmo d'Or 2023</span>
+        <span class="badge">+€25M financiamento</span>
+        <span class="badge">Zeiss Ventures</span>
+        <span class="badge">NPS &gt; 67</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <div class="stat-figure">2,1 Mrd</div>
+        <div class="stat-label">Pessoas com presbiopia no mundo. O público-alvo da Morrow é metade da população adulta global.</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-figure">26%</div>
+        <div class="stat-label">dos utilizadores de progressivos convencionais estão insatisfeitos. A Morrow não melhora o produto — resolve o problema que ele nunca resolveu.</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-figure">&lt; 1s</div>
+        <div class="stat-label">Tempo para mudar de longe para perto. Sem tirar os óculos. Sem esforço. Só um clique.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hl-row">
+    <div class="hl-item">
+      <div class="hl-num">€1.350</div>
+      <div class="hl-label">Preço do serviço Concierge completo</div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-num">+33%</div>
+      <div class="hl-label">Campo visual de leitura vs. progressivos tradicionais</div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-num">3×</div>
+      <div class="hl-label">Área intermédia na Gen 4 vs. geração anterior</div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-num">2 dias</div>
+      <div class="hl-label">Autonomia de bateria · recarga em 30 min</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ HISTÓRIA ══════════════ -->
+<div class="panel" id="panel-historia">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-eyebrow">A Empresa</div>
+      <h2 class="panel-title">De laboratório<br>a <em>revolução</em></h2>
+      <p class="panel-subtitle">Uma startup belga que nasceu da frustração com o status quo da ótica — e decidiu reescrever as regras com nanotecnologia.</p>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2016 — Fundação</div>
+            <div class="tl-text"><strong>Jelle De Smet e Paul Marchal</strong> fundam a Morrow em Ghent, Bélgica. A investigação nasceu no imec e na Universidade de Ghent — dois dos centros de nanotecnologia mais avançados da Europa.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2019 — Reconhecimento Internacional</div>
+            <div class="tl-text">Apresentação no <strong>MIDO Eyewear Show</strong> em Milão. Cobertura internacional imediata. A empresa capta <strong>€10,4M</strong> de investidores iniciais.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2022 — A Zeiss Entra</div>
+            <div class="tl-text">Ronda de <strong>+€10M liderada pela ZEISS Ventures</strong> — o maior fabricante de lentes ópticas do mundo. Total acumulado ultrapassa <strong>€25M</strong>.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2023 — Silmo d'Or</div>
+            <div class="tl-text">A Morrow vence o <strong>Silmo d'Or</strong> na categoria visão — o equivalente aos Óscares da indústria ótica global.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2024 — Parceria Novacel</div>
+            <div class="tl-text">Parceria estratégica com a <strong>Novacel Optical</strong>, um dos maiores fabricantes franceses de lentes, para expansão comercial europeia.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2026 — Gen 4</div>
+            <div class="tl-text">Lançamento dos <strong>e•Progressives Gen 4</strong>. Campo visual intermédio 3× maior. Arquitetura desenvolvida a partir de feedback real de utilizadores.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="quote-block">
+          <div class="quote-big">"Morrow é um grupo de empreendedores, investigadores e cientistas dedicados à saúde visual dos nossos clientes. Não somos limitados pelas convenções — e mantemos tudo sem complicações e com classe."</div>
+          <div class="quote-attr">Jelle De Smet & Paul Marchal · Fundadores</div>
+        </div>
+        <hr class="s-div">
+        <div class="card" style="background:var(--surface2)">
+          <div class="card-title">O que o investimento da Zeiss significa</div>
+          <div class="card-body">A Zeiss não é só um cheque. É a empresa que define os padrões de precisão óptica a nível mundial. Quando decide <strong>investir na Morrow</strong> em vez de desenvolver tecnologia equivalente internamente, está a dizer algo muito claro sobre quem tem a melhor solução.</div>
+        </div>
+        <hr class="s-div">
+        <div class="cards-2">
+          <div class="card">
+            <div class="card-fig">€25M+</div>
+            <div class="card-desc">Total de financiamento captado desde a fundação</div>
+          </div>
+          <div class="card">
+            <div class="card-fig">3</div>
+            <div class="card-desc">Parceiros estratégicos de nível global (Zeiss, Novacel, imec)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ TECNOLOGIA ══════════════ -->
+<div class="panel" id="panel-tecnologia">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-eyebrow">Como funciona</div>
+      <h2 class="panel-title">A física ao serviço<br>da <em>visão humana</em></h2>
+      <p class="panel-subtitle">Cristais líquidos. Corrente elétrica. Um clique. Três elementos que juntos fazem o que a ótica convencional nunca conseguiu: adaptação instantânea do foco.</p>
+    </div>
+
+    <div class="cards-3" style="margin-bottom:2.5rem">
+      <div class="card">
+        <div class="card-num">01</div>
+        <div class="card-title">Cristais Líquidos Integrados</div>
+        <div class="card-body">Uma camada ultrafina de cristais líquidos — tecnologia "lens-in-foil" patenteada — é encapsulada entre duas lentes óticas de alta qualidade. Baseada em <strong>lentes Fresnel com polarização independente</strong>.</div>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <div class="card-title">Impulso de Microamperes</div>
+        <div class="card-body">Um clique no botão da armação envia uma corrente de <strong>microamperes</strong> — equivalente à de um relógio de pulso — que reorienta os cristais e altera instantaneamente a refração da luz.</div>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <div class="card-title">Foco em 0,6 Segundos</div>
+        <div class="card-body">A zona de leitura é amplificada com um <strong>boost de +1,0D/24mm</strong>. Transição de longe para perto, fluida, sem distorções e sem tirar os óculos.</div>
+      </div>
+    </div>
+
+    <table class="spec-table">
+      <tr><td>Boost ótico</td><td><strong>+1,0D / 24mm</strong> — ativação em menos de 0,6 segundos por cristais líquidos</td></tr>
+      <tr><td>Campo visual</td><td><strong>+33% na zona de leitura</strong> · área intermédia <strong>3× maior</strong> face à geração anterior</td></tr>
+      <tr><td>Bateria</td><td><strong>+2 dias de autonomia</strong> · recarregamento completo em 30 minutos via USB</td></tr>
+      <tr><td>Proteção</td><td>Classificação <strong>IP54</strong> — resistente a salpicos de água e poeira · uso diário ativo</td></tr>
+      <tr><td>Lente</td><td>Progressiva premium · índice <strong>1.6</strong> · revestimento duro anti-risco · anti-reflexo de alta qualidade</td></tr>
+      <tr><td>Segurança</td><td>Corrente de microamperes — sem risco ocular. <strong>Sem bateria: funcionam como progressivos normais.</strong> Nunca ficas sem óculos.</td></tr>
+      <tr><td>Ativação</td><td>Botão físico na armação · toque único · sem apps, sem Bluetooth, sem configuração</td></tr>
+      <tr><td>Ideal para</td><td>Pessoas com <strong>adição de +2,00D ou mais</strong> — as mais frustradas com progressivos tradicionais</td></tr>
+    </table>
+
+    <div class="quote-block" style="margin-top:2.2rem">
+      <div class="quote-big">"Os progressivos convencionais pedem ao utilizador que se adapte. Os e•Progressives adaptam-se ao utilizador."</div>
+      <div class="quote-attr">Princípio de design · Morrow Eyewear</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ PRODUTOS ══════════════ -->
+<div class="panel" id="panel-produtos">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-eyebrow">Coleção Gen 4</div>
+      <h2 class="panel-title">Quatro estilos.<br><em>Uma tecnologia.</em></h2>
+      <p class="panel-subtitle">Cada armação disponível em 4 cores, com patilhas de nariz ajustáveis. Em progressivos eletrónicos, o posicionamento perfeito não é opcional — é o que faz tudo funcionar.</p>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-tag">Modelo 01</div>
+        <div class="product-name">Cam</div>
+        <div class="product-desc">Redondo e arrojado. Para quem quer que o design seja a primeira coisa que as pessoas notem — e a tecnologia, a última.</div>
+        <div class="color-row">
+          <div class="c-dot c-black"></div><div class="c-dot c-tort"></div><div class="c-dot c-gold"></div><div class="c-dot c-silver"></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">Modelo 02</div>
+        <div class="product-name">Denis</div>
+        <div class="product-desc">O clássico reinventado. Disponível também em versão "crystal" — transparente, elegante, com uma personalidade própria.</div>
+        <div class="color-row">
+          <div class="c-dot c-black"></div><div class="c-dot c-tort"></div><div class="c-dot c-gold"></div><div class="c-dot c-silver"></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">Modelo 03</div>
+        <div class="product-name">Guy</div>
+        <div class="product-desc">Geometria precisa para um rosto assertivo. O equilíbrio certo entre presença e leveza — para um dia inteiro sem os tirar.</div>
+        <div class="color-row">
+          <div class="c-dot c-black"></div><div class="c-dot c-tort"></div><div class="c-dot c-gold"></div><div class="c-dot c-silver"></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">Modelo 04</div>
+        <div class="product-name">Rita</div>
+        <div class="product-desc">Linhas suaves, carácter forte. Para quem sabe que os melhores óculos são os que nos esquecem de usar — porque nunca incomodam.</div>
+        <div class="color-row">
+          <div class="c-dot c-black"></div><div class="c-dot c-tort"></div><div class="c-dot c-gold"></div><div class="c-dot c-silver"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="s-div">
+
+    <div class="panel-eyebrow" style="margin-bottom:1.3rem">Onde Comprar</div>
+    <div class="cards-2">
+      <div class="card">
+        <div class="card-title">Via Ótico Certificado</div>
+        <div class="card-body">
+          Rede de óticos parceiros localizável pelo store locator do site. Podes ver e experimentar as armações antes de encomendar as tuas lentes personalizadas.
+          <br><br>Portal B2B dedicado em <strong>ordermorrow.com</strong> para parceiros e óticos.
+          <br><br><strong>Garantia:</strong> 2 anos contra defeitos de fabrico.
+        </div>
+      </div>
+      <div class="card" style="border-left:2px solid var(--gold)">
+        <div class="card-title" style="color:var(--gold)">Serviço Concierge · €1.350</div>
+        <div class="card-body">
+          A Morrow vem ter contigo. Consulta agendada, lentes fabricadas sob medida, entrega e fitting pessoal na tua porta.
+          <br><br><strong>Inclui:</strong> visita a casa, lentes personalizadas, armação premium e ajuste final pelo ótico Morrow.
+          <br><br><strong>Garantia:</strong> 30 dias de adaptação com reembolso total garantido.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ANÁLISE ══════════════ -->
+<div class="panel" id="panel-analise">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-eyebrow">Análise Crítica</div>
+      <h2 class="panel-title">O que a Morrow faz bem —<br>e onde há <em>espaço para crescer</em></h2>
+      <p class="panel-subtitle">Uma análise honesta baseada em especificações oficiais, feedback de utilizadores e posicionamento de mercado.</p>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros-side">
+        <div class="side-header pros-header">
+          <div class="side-dot dot-g"></div>Vantagens
+        </div>
+        <div class="pt-row"><div class="pt-dot" style="background:var(--green)"></div><div class="pt-text"><strong>Tecnologia sem equivalente comercial.</strong> Nenhuma outra empresa oferece progressivos eletrónicos com cristais líquidos já disponíveis no mercado com este nível de acabamento.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:var(--green)"></div><div class="pt-text"><strong>Adaptação significativamente mais rápida.</strong> A correção suave na parte inferior reduz a principal barreira dos progressivos — a curva de aprendizagem.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:var(--green)"></div><div class="pt-text"><strong>Campo visual 33% maior.</strong> Mais área útil de leitura significa menos esforço ocular — especialmente em ecrãs, menus e documentos.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:var(--green)"></div><div class="pt-text"><strong>Maior segurança no dia a dia.</strong> Clareza na parte inferior da lente reduz o risco de quedas nas escadas — um benefício real e imediato.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:var(--green)"></div><div class="pt-text"><strong>Design completamente discreto.</strong> Visualmente idênticos a óculos convencionais. A tecnologia é invisível.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:var(--green)"></div><div class="pt-text"><strong>Fail-safe garantido.</strong> Sem bateria, funcionam como progressivos normais. O utilizador nunca fica sem óculos.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:var(--green)"></div><div class="pt-text"><strong>NPS superior a 67.</strong> Nível de satisfação comparável ao da Apple — num mercado onde 26% dos utilizadores estão insatisfeitos com a alternativa convencional.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:var(--green)"></div><div class="pt-text"><strong>Tripla validação institucional.</strong> Silmo d'Or 2023, investimento da Zeiss, parceria Novacel. Não é promessa — é reconhecimento da indústria.</div></div>
+      </div>
+
+      <div class="cons-side">
+        <div class="side-header cons-header">
+          <div class="side-dot dot-a"></div>Limitações
+        </div>
+        <div class="pt-row"><div class="pt-dot" style="background:#C87"></div><div class="pt-text"><strong>Preço elevado.</strong> €1.350 pelo Concierge vs. €150–650 por progressivos convencionais premium. A barreira de entrada é real.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:#C87"></div><div class="pt-text"><strong>Não é possível experimentar antes de comprar</strong> (via Concierge). As lentes são fabricadas por medida. O risco é atenuado pelos 30 dias de devolução — mas existe.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:#C87"></div><div class="pt-text"><strong>Exige receita recente.</strong> Prescrita nos últimos 6 meses. Uma barreira logística menor mas real.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:#C87"></div><div class="pt-text"><strong>Rede de distribuição ainda limitada.</strong> Apenas via óticos certificados Morrow ou Concierge. Não encontras numa ótica convencional.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:#C87"></div><div class="pt-text"><strong>Público-alvo restrito.</strong> Mais eficaz para adições de +2,00D ou mais. Presbiopia leve beneficia menos da tecnologia.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:#C87"></div><div class="pt-text"><strong>Manutenção eletrónica.</strong> Carregamento regular obrigatório. Cuidados adicionais que os óculos convencionais não exigem.</div></div>
+        <div class="pt-row"><div class="pt-dot" style="background:#C87"></div><div class="pt-text"><strong>Garantia assimétrica.</strong> 30 dias pelo Concierge vs. 2 anos via ótico. A diferença é significativa e pode causar hesitação na decisão de compra.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MERCADO ══════════════ -->
+<div class="panel" id="panel-mercado">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-eyebrow">Contexto de Mercado</div>
+      <h2 class="panel-title">Um problema universal<br>num mercado de <em>dimensão histórica</em></h2>
+      <p class="panel-subtitle">A presbiopia não é uma doença. É biologia. Afeta toda a gente — sem exceção — a partir dos 40 anos. E o mercado que serve essa realidade vale centenas de mil milhões de euros.</p>
+    </div>
+
+    <div class="cards-3" style="margin-bottom:1px">
+      <div class="card">
+        <div class="card-fig">2,1 Mrd</div>
+        <div class="card-desc">Pessoas com presbiopia no mundo. O público-alvo potencial da Morrow cresce à medida que a população global envelhece.</div>
+      </div>
+      <div class="card">
+        <div class="card-fig">$27,5 Mrd</div>
+        <div class="card-desc">Valor do mercado global de miopia e presbiopia em 2025. Cresce 5,11% ao ano e deverá atingir $35,2 mil milhões até 2030.</div>
+      </div>
+      <div class="card">
+        <div class="card-fig">$330 Mrd</div>
+        <div class="card-desc">Valor projetado do mercado global de eyewear até 2034, a partir dos $192 mil milhões de 2026 — crescimento anual de 7%.</div>
+      </div>
+    </div>
+    <div class="cards-3" style="margin-bottom:2.5rem">
+      <div class="card">
+        <div class="card-fig">26%</div>
+        <div class="card-desc">dos utilizadores de progressivos convencionais estão insatisfeitos — o problema exato que a Morrow foi criada para resolver.</div>
+      </div>
+      <div class="card">
+        <div class="card-fig">13%</div>
+        <div class="card-desc">têm dificuldade ativa em adaptar-se, com fadiga visual e distorções periféricas. São os clientes ideais da Morrow.</div>
+      </div>
+      <div class="card">
+        <div class="card-fig">+40</div>
+        <div class="card-desc">A partir desta idade, praticamente nenhum ser humano escapa à presbiopia. Não há cura — há gestão. E a Morrow está na melhor posição para liderar essa gestão.</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-big">"A presbiopia não é nicho. É universal. A Morrow não compete com uma parte do mercado — posiciona-se para redefinir o que o mercado inteiro pode oferecer."</div>
+      <div class="quote-attr">Análise de posicionamento · MogWartz</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ CONCORRÊNCIA ══════════════ -->
+<div class="panel" id="panel-concorrencia">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-eyebrow">Posicionamento Competitivo</div>
+      <h2 class="panel-title">Pioneira num segmento<br><em>sem precedentes</em></h2>
+      <p class="panel-subtitle">A Morrow não compete com a Zeiss ou a Essilor — compete com a ideia de que os progressivos não podem ser melhores. Essa é uma batalha muito mais fácil de ganhar.</p>
+    </div>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>País</th>
+          <th>Tecnologia</th>
+          <th>Estado</th>
+          <th>Relação com a Morrow</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag-morrow">✦ Morrow Eyewear</span></td>
+          <td>Bélgica</td>
+          <td>Cristais líquidos (lens-in-foil) — boost eletrónico por clique</td>
+          <td>Produto comercializado · Gen 4 em 2026</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Deep Optics</td>
+          <td>Israel</td>
+          <td>Polímero de cristal líquido — autofocus automático</td>
+          <td>Em desenvolvimento · ainda não comercializado</td>
+          <td>Concorrente direto mais próximo</td>
+        </tr>
+        <tr>
+          <td>PixelOptics (extinta)</td>
+          <td>EUA</td>
+          <td>Primeiro eletrónico do género — emPower! (2011)</td>
+          <td>Faliu em 2013. Patentes adquiridas pela Zeiss em 2024</td>
+          <td>Precursor histórico · patentes agora no ecossistema Zeiss/Morrow</td>
+        </tr>
+        <tr>
+          <td>EssilorLuxottica</td>
+          <td>França / EUA</td>
+          <td>Progressivos premium convencionais (Varilux, Ray-Ban)</td>
+          <td>Líder de mercado em lentes tradicionais</td>
+          <td>Concorrente indireto · o segmento que a Morrow quer substituir</td>
+        </tr>
+        <tr>
+          <td>Zeiss Vision Care</td>
+          <td>Alemanha</td>
+          <td>Progressivos de alta precisão + portfólio de patentes eletrónicas</td>
+          <td>Líder em lentes premium convencionais</td>
+          <td>Investidor e parceiro tecnológico — não concorrente</td>
+        </tr>
+        <tr>
+          <td>Hoya Corporation</td>
+          <td>Japão</td>
+          <td>Progressivos digitais de alta gama</td>
+          <td>Forte presença no segmento premium</td>
+          <td>Concorrente indireto no segmento de utilizadores exigentes</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr class="s-div">
+
+    <div class="cards-2">
+      <div class="card">
+        <div class="card-title">A vantagem decisiva</div>
+        <div class="card-body">A Morrow é o único produto de progressivos eletrónicos já no mercado com suporte de distribuição estruturado, parceria com a Zeiss e reconhecimento institucional (Silmo d'Or). Os seus concorrentes diretos ainda estão em laboratório.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">O risco a monitorizar</div>
+        <div class="card-body">A <strong>Deep Optics</strong> trabalha em autofocus automático — sem botão, sem interação consciente. Se chegar ao mercado com qualidade equivalente, o paradigma muda. A Morrow tem uma janela de vantagem que precisa de capitalizar rapidamente.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ FONTES ══════════════ -->
+<div class="panel" id="panel-fontes">
+  <div class="panel-inner">
+    <div class="panel-header">
+      <div class="panel-eyebrow">Referências</div>
+      <h2 class="panel-title">Fontes <em>consultadas</em></h2>
+      <p class="panel-subtitle">Toda a informação desta apresentação foi retirada de fontes primárias verificáveis — site oficial, imprensa especializada e relatórios de mercado de referência.</p>
+    </div>
+
+    <div class="sources-list">
+      <div class="source-item">
+        <div class="source-num">01</div>
+        <div>
+          <div class="source-site">morroweyewear.com</div>
+          <div class="source-desc">Site oficial — Technology, Products, Our Story, FAQs, Where to Buy</div>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">02</div>
+        <div>
+          <div class="source-site">optometrytimes.com</div>
+          <div class="source-desc">Parceria Morrow + Novacel Optical · NPS > 67 · dados de insatisfação (26%, 13%)</div>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">03</div>
+        <div>
+          <div class="source-site">mafo-optics.com</div>
+          <div class="source-desc">Análise técnica de smart glasses · contexto PixelOptics · tecnologia Fresnel/cristal líquido</div>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">04</div>
+        <div>
+          <div class="source-site">cbinsights.com</div>
+          <div class="source-desc">Perfil financeiro · ronda €10M liderada pela Zeiss · total >€25M</div>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">05</div>
+        <div>
+          <div class="source-site">tracxn.com</div>
+          <div class="source-desc">Concorrentes da Morrow — Deep Optics, Zenith, Fuller Vision</div>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">06</div>
+        <div>
+          <div class="source-site">pitchbook.com</div>
+          <div class="source-desc">Dados de investimento e mapeamento de concorrentes diretos</div>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">07</div>
+        <div>
+          <div class="source-site">mordorintelligence.com</div>
+          <div class="source-desc">Mercado global de miopia e presbiopia — $27,47 Mrd (2025) · CAGR 5,11%</div>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">08</div>
+        <div>
+          <div class="source-site">fortunebusinessinsights.com</div>
+          <div class="source-desc">Mercado global de eyewear — $192 Mrd (2026) → $330 Mrd (2034) · 2,1 mil milhões presbíopes</div>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">09</div>
+        <div>
+          <div class="source-site">eye-see-mag.com</div>
+          <div class="source-desc">MIDO Eyewear Show 2019 · €10,4M captados · declarações dos fundadores</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
